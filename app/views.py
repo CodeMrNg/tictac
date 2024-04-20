@@ -52,3 +52,14 @@ def loginn(request):
 def logoutt(request):
     logout(request)
     return redirect('home')
+
+
+def addevent(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dash')
+    else:
+        form = EventForm()
+    return render(request, 'addevent.html', {'form': form})

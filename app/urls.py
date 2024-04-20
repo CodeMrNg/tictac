@@ -11,5 +11,6 @@ urlpatterns = [
     path('login/', views.loginn, name='login'),
     path('logout/', views.logoutt, name='logout'),
     path('inscription/', views.signup, name='register'),
-    
+    path('add_event/', views.addevent, name='add_event'),
+
 ]

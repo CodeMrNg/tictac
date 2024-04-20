@@ -35,3 +35,26 @@ class AllUser(AbstractUser):
 
     def __str__(self):
         return self.name
+
+
+    
+class Event(models.Model):
+    banniere = models.ImageField("Affiche de l'evenement")
+    name = models.CharField("Nom de l'evenement", max_length=50)
+    date_debut = models.DateTimeField('date de debut')
+    user = models.ForeignKey(AllUser, on_delete=models.CASCADE)
+    description = models.TextField('description')
+    is_actived = models.BooleanField(default=True)
+    is_free = models.BooleanField(default= False)
+    is_normal = models.IntegerField('Prix normal du ticket', default = 0)
+    is_vip = models.IntegerField('prix du ticket VIP', default = 0)
+    is_premium = models.IntegerField('prix du ticket Premium', default = 0)
+    class Meta:
+        verbose_name = ("Event")
+        verbose_name_plural = ("Events")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Event_detail", kwargs={"pk": self.pk})
