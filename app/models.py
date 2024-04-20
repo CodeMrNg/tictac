@@ -43,6 +43,7 @@ class Event(models.Model):
     name = models.CharField("Nom de l'evenement", max_length=50)
     date_debut = models.DateTimeField('date de debut')
     user = models.ForeignKey(AllUser, on_delete=models.CASCADE)
+    place_number = models.IntegerField('Nombre de place ', default = 0)
     description = models.TextField('description')
     is_actived = models.BooleanField(default=True)
     is_free = models.BooleanField(default= False)
@@ -58,3 +59,23 @@ class Event(models.Model):
 
     def get_absolute_url(self):
         return reverse("Event_detail", kwargs={"pk": self.pk})
+
+
+
+
+class Ticket(models.Model):
+    name = models.CharField("Nom du ticket", max_length=50)
+    price = models.IntegerField('Prix du ticket')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    is_actived = models.BooleanField(default=True)
+    rang = models.IntegerField('Rang du ticket')
+    quantite = models.IntegerField('Combien de ticket voulez vous ?', default = 1)
+    class Meta:
+        verbose_name = ("Ticket")
+        verbose_name_plural = ("Tickets")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Ticket_detail", kwargs={"pk": self.pk})

@@ -8,8 +8,9 @@
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo3.png' %}" />
-
-    <!-- Layout config Js -->
+    {% block link %}
+    {% endblock link %}
+    
     <script src="{% static 'dash/js/layout.js' %}"></script>
     <!-- Bootstrap Css -->
     <link href="{% static 'dash/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
@@ -214,15 +215,9 @@
     <script src="{% static 'dash/js/pages/plugins/lord-icon-2.1.0.js' %}"></script>
     <script src="{% static 'dash/js/plugins.js' %}"></script>
 
-    <!-- list.js min js -->
-    <script src="{% static 'dash/libs/list.js/list.min.js' %}"></script>
-    <script src="{% static 'dash/libs/list.pagination.js/list.pagination.min.js' %}"></script>
-
     <!-- apexcharts -->
     <script src="{% static 'dash/libs/apexcharts/apexcharts.min.js' %}"></script>
 
-    <!--crypto-buy-sell init-->
-    <script src="{% static 'dash/js/pages/crypto-buy-sell.init.js' %}"></script>
 
     <!-- App js -->
     <script src="{% static 'dash/js/app.js' %}"></script>

@@ -578,8 +578,7 @@
                 </div><!-- container-fluid -->
             </div><!-- End Page-content -->
         </div>
-        <script src="{% static "dash/js/pages/team.init.js" %}"></script>
-
-        <!-- App js -->
-        <script src="{% static "dash/js/app.js" %}"></script>
 {% endblock main %}
+{% block script %}
+      <script src="{% static 'dash/js/pages/team.init.js' %}"></script>
+{% endblock script %}

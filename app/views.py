@@ -63,3 +63,6 @@ def addevent(request):
     else:
         form = EventForm()
     return render(request, 'addevent.html', {'form': form})
+
+
+def new_ticket
