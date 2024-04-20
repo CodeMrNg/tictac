@@ -65,4 +65,15 @@ def addevent(request):
     return render(request, 'addevent.html', {'form': form})
 
 
-def new_ticket
+def new_ticket(request):
+    if request.method == 'POST':
+        form = TicketForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = TicketForm() 
+
+    event = get_object_or_404(Event, pk=event_id)
+    return redirect(event.get_absolute_url())
+    

@@ -12,5 +12,7 @@ urlpatterns = [
     path('logout/', views.logoutt, name='logout'),
     path('inscription/', views.signup, name='register'),
     path('add_event/', views.addevent, name='add_event'),
+    path('new_ticket/<int:event_id>/', views.new_ticket, name='new_ticket'),
+
 
 ]

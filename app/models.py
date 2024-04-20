@@ -67,7 +67,6 @@ class Ticket(models.Model):
     name = models.CharField("Nom du ticket", max_length=50)
     price = models.IntegerField('Prix du ticket')
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    is_actived = models.BooleanField(default=True)
     rang = models.IntegerField('Rang du ticket')
     quantite = models.IntegerField('Combien de ticket voulez vous ?', default = 1)
     class Meta:

@@ -22,3 +22,9 @@ class EventForm(forms.Form):
         model = Event
         fields = ('date_debut', 'name', 'user','description','is_free', 'is_narmal', 'is_vip', 'is_premium')
     
+
+class TicketForm(forms.Form):
+    class Meta:
+        model = Ticket
+        fields = ('name', 'event', 'price', 'quantite', 'rang')
+    
