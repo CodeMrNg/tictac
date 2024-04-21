@@ -125,7 +125,7 @@
 
                                                 </div>
                                               </div>
-                                              <a href="#!"><h5>{{ev.name}}</h5></a>  <p class="text-muted">Categorie</p> <div class="d-flex gap-4 mb-3">  <div><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{{ev.location}}</div>                    <div><i class="ri-time-line text-primary me-1 align-bottom"></i> {{ev.date_debut}}</div>                </div>                <p class="text-muted">{{ev.description}}</p>                <div class="hstack gap-2"><span class="badge bg-success-subtle text-success">Full Time</span><span class="badge bg-primary-subtle text-primary">Freelance</span><span class="badge bg-danger-subtle text-danger">Urgent</span></div>                <div class="mt-4 hstack gap-2">                    <a href="/accounts/new_ticket/{{ev.id}}" class="btn btn-soft-primary w-100">Apercu</a>                    <a href="apps-job-details.html" class="btn btn-soft-success w-100">share</a> 
+                                              <a href="#!"><h5>{{ev.name}}</h5></a>  <p class="text-muted">Categorie</p> <div class="d-flex gap-4 mb-3">  <div><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{{ev.location}}</div>                    <div><i class="ri-time-line text-primary me-1 align-bottom"></i> {{ev.date_debut}}</div>                </div>                <p class="text-muted">{{ev.description}}</p>                <div class="hstack gap-2"><span class="badge bg-success-subtle text-success">Full Time</span><span class="badge bg-primary-subtle text-primary">Freelance</span><span class="badge bg-danger-subtle text-danger">Urgent</span></div>                <div class="mt-4 hstack gap-2">                    <a href="{% url 'new_ticket' ev.id %}" class="btn btn-soft-primary w-100">Apercu</a>   
                                               </div>
                                             </div>
                                           </div>
@@ -300,8 +300,7 @@
                                     </div>
                                     <!--end offcanvas-body-->
                                     <div class="offcanvas-foorter border p-3 hstack gap-3 text-center position-relative">
-                                        <button class="btn btn-light w-100"><i class="ri-question-answer-fill align-bottom ms-1"></i> share</button>
-                                        <a href="pages-profile.html" class="btn btn-primary w-100"><i class="ri-user-3-fill align-bottom ms-1"></i> Apercu</a>
+                                        <a href="{% url 'new_ticket' ev.id %}" class="btn btn-primary w-100"><i class="ri-user-3-fill align-bottom ms-1"></i> Apercu</a>
                                     </div>
                                 </div>
                                 {% endfor %}

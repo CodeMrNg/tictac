@@ -83,12 +83,14 @@ def new_ticket(request, event_id):
         form = TicketForm()
 
     event = get_object_or_404(Event, pk=event_id)
-    return render(request, 'new_ticket.html', {'form': form, 'event':event})
+    return render(request, 'new_ticket.html', {'form': form, 'event':event, 'host_name': request.get_host(),})
     
-def success(request):
-    return render(request, 'success.html')
+def success(request, ticket_id):
+    ticket = get_object_or_404(Ticket, pk=ticket_id)
 
+    return render(request, 'success.html', {'ticket': ticket, 'host_name': request.get_host(),})
 
+@login_required
 def ticket_detail(request, ticket_id):
     ticket = get_object_or_404(Ticket, pk=ticket_id)
     return render(request, 'ticket_detail.html', {'ticket': ticket})

@@ -2,7 +2,7 @@
 <html lang="fr" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 <head>
     <meta charset="utf-8" />
-    <title>Congratulation !!!!</title>
+    <title>Congratulation {{ticket.name}} !!!!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo3.png' %}" />
     {% block link %}
     {% endblock link %}
-    
+
     <script src="{% static 'dash/js/layout.js' %}"></script>
     <!-- Bootstrap Css -->
     <link href="{% static 'dash/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
@@ -38,15 +38,12 @@
                             <div class="row justify-content-center g-0">
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4 auth-one-bg h-100">
-                                        <div class="bg-overlay"></div>
+                                        <div class="bg-overlay""></div>
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
                                                 <button id="shareButton" class="btn-icon btn btn-light"><i class="bx bx-share-alt"></i></button>
                                             </div>
-                                            <div class="mx-auto">
-                                                <img src="{% static 'img/qrcode.png' %}" style='width: 250px;'>
-                                                
-                                                <!-- end carousel -->
+                                            <div id="qrcode" class="mx-auto" >                                        <!-- end carousel -->
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +58,7 @@
                                             </div>
                                         </div>
                                         <div class="mt-4 pt-2">
-                                            <h4>Felicitation !</h4>
+                                            <h4>Felicitation {{ticket.name}} !</h4>
                                             <p class="text-muted mx-4">votre achat a bien ete effectue. <br> <span>Oubliez pas d'enregistrer le qr code</span></p>
                                             <div class="mt-4">
                                                 <a href="/" class="btn btn-success w-100">Back to Tic-Tac</a>
@@ -83,7 +80,7 @@
             <!-- end container -->
         </div>
         <!-- end auth page content -->
-
+        
         <!-- footer -->
         <footer class="footer">
             <div class="container">
@@ -108,9 +105,9 @@
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Titre du partage',
-                    text: 'Texte du partage',
-                    url: 'https://exemple.com'
+                    title: 'Ticket {{ticket.name}}',
+                    text: '{{ticket.event.name}}',
+                    url: 'http://{{ host_name }}{% url "success" ticket.id %}'
                 });
                 console.log('Contenu partagé avec succès !');
             } catch (error) {
@@ -129,6 +126,29 @@
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+        // Exemple de lien
+        var link = 'http://{{ host_name }}{% url "ticket" ticket.id %}';
+
+        // Créer un QR code
+        var qr = qrcode(0, 'M');
+        qr.addData(link);
+        qr.make();
+
+        // Récupérer la matrice du QR code sous forme de chaîne de caractères
+        var qrCodeString = qr.createDataURL();
+
+        // Créer une image et l'afficher dans la div
+        var img = document.createElement('img');
+        img.src = qrCodeString;
+
+        // Définir la taille du QR code
+        img.style.width = '200px'; // Ajustez cette valeur selon vos besoins
+
+        // Ajouter l'image à la div
+        document.getElementById('qrcode').appendChild(img);
+    </script>
 </body>
 
 </html>

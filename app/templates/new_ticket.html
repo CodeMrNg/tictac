@@ -302,7 +302,7 @@
                     await navigator.share({
                         title: '{{event.name}}',
                         text: '',
-                        url: '{% url "new_ticket" event.id %}'
+                        url: 'http://{{ host_name }}{% url "ticket" event.id %}'
                     });
                     console.log('Contenu partagé avec succès !');
                 } catch (error) {

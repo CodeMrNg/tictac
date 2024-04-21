@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Achat Ticket | Osiane</title>
+    <title>Detail Ticket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -44,7 +44,7 @@
                                     <div class="sticky-side-div">
                                         <div class="card ribbon-box border shadow-none right">
                                             <div class="ribbon-two ribbon-two-success"><span><i class="ri-fire-fill align-bottom"></i>Actif</span></div>
-                                            <img src="{{event.banniere.url}}" alt="" class="img-fluid rounded">
+                                            <img src="{{ticket.event.banniere.url}}" alt="" class="img-fluid rounded">
                                         </div>
                                         <div class="hstack gap-2">
                                         </div>
@@ -138,7 +138,7 @@
                     await navigator.share({
                         title: '{{ticket.event.name}}',
                         text: '',
-                        url: '{% url "ticket" ticket.id %}'
+                        url: 'http://{{ host_name }}{% url "ticket" ticket.id %}'
                     });
                     console.log('Contenu partagé avec succès !');
                 } catch (error) {
@@ -179,6 +179,8 @@
             document.getElementById("preloader").style.display = "none";
         });
         </script>
+
+
 </body>
 
 </html>
