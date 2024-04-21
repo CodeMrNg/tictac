@@ -160,7 +160,7 @@
                                     <div class="sticky-side-div">
                                         <div class="card ribbon-box border shadow-none right">
                                             <div class="ribbon-two ribbon-two-danger"><span><i class="ri-fire-fill align-bottom"></i> Bientot</span></div>
-                                            <img src="{% static 'dash/images/img-05.jpg' %}" alt="" class="img-fluid rounded">
+                                            <img src="{{event.banniere.url}}" alt="" class="img-fluid rounded">
                                         </div>
                                         <div class="hstack gap-2">
                                             <a href='#popup'  class="btn btn-success w-100">Place</a>
@@ -175,20 +175,20 @@
                                             </button>
                                         </div>
                                         <span class="badge bg-info-subtle text-info mb-3 fs-12"><i class="ri-eye-line me-1 align-bottom"></i> 8,634 vue </span>
-                                        <h4>Salon Patterns Arts & Culture</h4>
+                                        <h4>{{event.name}}</h4>
                                         <div class="hstack gap-3 flex-wrap">
-                                            <div class="text-muted">Organisateur : <a href="#" class="text-primary fw-medium">Osiane</a></div>
+                                            <div class="text-muted">Organisateur : <a href="#" class="text-primary fw-medium">{{event.user.name}}</a></div>
                                             <div class="vr"></div>
-                                            <div class="text-muted">Date : <span class="text-body fw-medium">29 April, 2022</span></div>
+                                            <div class="text-muted">Date et heure : <span class="text-body fw-medium">{{event.date_debut}}</span></div>
                                             <div class="vr"></div>
-                                            <div class="text-muted">Lieu: <span class="text-body fw-medium">PALAIS DES CONGRES</span></div>
+                                            <div class="text-muted">Lieu: <span class="text-body fw-medium">{{event.location}}</span></div>
                                         </div>
                                         <div class="row mt-4">
                                             <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
                                                         <p class="text-muted fw-medium mb-1">Premium :</p>
-                                                        <h5 class="fs-17 text-success mb-0">FCFA 83 000 </h5>
+                                                        <h5 class="fs-17 text-success mb-0">FCFA {{event.is_premium}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
                                                         <p class="text-muted fw-medium mb-1">VIP</p>
-                                                        <h5 class="fs-17 mb-0">FCFA 50 000</h5>
+                                                        <h5 class="fs-17 mb-0">FCFA {{event.is_vip}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,7 +206,7 @@
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
                                                         <p class="text-muted fw-medium mb-1">Classic</p>
-                                                        <h5 class="fs-17 mb-0">FCFA 25 000</h5>
+                                                        <h5 class="fs-17 mb-0">FCFA {{event.is_normal}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,7 +222,7 @@
                                         </div><!--end row-->
                                         <div class="mt-4 text-muted">
                                             <h5 class="fs-14">Description :</h5>
-                                            <p>Cultural patterns are the similar behaviors within similar situations we witness due to shared beliefs, values, norms and social practices that are steady over time. In art, a pattern is a repetition of specific visual elements. The dictionary.com definition of "pattern" is: an arrangement of repeated or corresponding parts, decorative motifs, etc.</p>
+                                            <p>{{event.description}}</p>
                                         </div>
 
                                     </div>

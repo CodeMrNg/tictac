@@ -39,7 +39,7 @@ class AllUser(AbstractUser):
 
     
 class Event(models.Model):
-    banniere = models.ImageField("Affiche de l'evenement")
+    banniere = models.FileField("Affiche de l'evenement",upload_to='bannieres/')
     name = models.CharField("Nom de l'evenement", max_length=200)
     date_debut = models.DateTimeField('date de debut')
     user = models.ForeignKey(AllUser, on_delete=models.CASCADE)

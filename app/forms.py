@@ -75,7 +75,7 @@ class EventForm(forms.ModelForm):
         fields = ('place_number', 'banniere', 'date_debut', 'name', 'location', 'user', 'description', 'is_free', 'is_normal', 'is_vip', 'is_premium')
         widgets = {
             'place_number': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Numéro de place'}),
-            'banniere': forms.ClearableFileInput(attrs={'class': 'filepond filepond-input-multiple','data-allow-reorder':"true" ,'data-max-file-size':"3MB", 'accept': 'image/*'}),
+            
             'date_debut': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nom de l\'événement'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Lieu'}),
@@ -87,12 +87,12 @@ class EventForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user', None)  # Récupérer l'utilisateur connecté
+        user = kwargs.pop('user', None)  
+        
         super(EventForm, self).__init__(*args, **kwargs)
         if user:
             self.fields['user'].initial = user  # Affecter l'utilisateur connecté au champ 'user' du formulaire
-            self.fields['user'].widget = forms.TextInput() 
-    
+            self.fields['user'].widget = forms.HiddenInput()
 
 class TicketForm(ModelForm):
     class Meta:

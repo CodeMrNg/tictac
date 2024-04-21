@@ -18,7 +18,12 @@ def index(request):
 
 @login_required
 def dash(request):
-    return render(request, 'home.html')
+    user = request.user
+    event = Event.objects.filter(user=user).order_by('-pk')
+    context = {
+        'events': event,
+    }
+    return render(request, 'home.html', context)
 
 def signup(request):
     if request.method == 'POST':
@@ -55,17 +60,20 @@ def logoutt(request):
 
 @login_required
 def addevent(request):
+    user=request.user
     if request.method == 'POST':
-        form = EventForm(request.POST, request.FILES, user=request.user)
+        form = EventForm(request.POST, request.FILES, user=user)
         if form.is_valid():
             event = form.save()
             return redirect('dash')
     else:
-        form = EventForm(user=request.user) 
+        form = EventForm(user=request.user)
     return render(request, 'addevent.html', {'form': form})
 
 
+
 def new_ticket(request, event_id):
+    event = Event.objects.get(pk=event_id)
     if request.method == 'POST':
         form = TicketForm(request.POST)
         if form.is_valid():
@@ -75,7 +83,7 @@ def new_ticket(request, event_id):
         form = TicketForm() 
 
     event = get_object_or_404(Event, pk=event_id)
-    return render(request, 'new_ticket.html', {'form': form})
+    return render(request, 'new_ticket.html', {'form': form, 'event':event})
     
 def success(request):
     return render(request, 'success.html')
