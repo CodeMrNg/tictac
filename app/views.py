@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -65,7 +65,7 @@ def addevent(request):
     return render(request, 'addevent.html', {'form': form})
 
 
-def new_ticket(request):
+def new_ticket(request, event_id):
     if request.method == 'POST':
         form = TicketForm(request.POST)
         if form.is_valid():
@@ -75,5 +75,7 @@ def new_ticket(request):
         form = TicketForm() 
 
     event = get_object_or_404(Event, pk=event_id)
-    return redirect(event.get_absolute_url())
+    return render(request, 'new_ticket.html', {'form': form})
     
+def success(request):
+    return render(request, 'success.html')

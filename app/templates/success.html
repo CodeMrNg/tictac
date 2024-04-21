@@ -1,0 +1,134 @@
+<!doctype html>{% load static %}
+<html lang="fr" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<head>
+    <meta charset="utf-8" />
+    <title>Congratulation !!!!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo3.png' %}" />
+    {% block link %}
+    {% endblock link %}
+    
+    <script src="{% static 'dash/js/layout.js' %}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{% static 'dash/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{% static 'dash/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{% static 'dash/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{% static 'dash/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- auth-page wrapper -->
+    <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="bg-overlay"></div>
+        <!-- auth-page content -->
+        <div class="auth-page-content overflow-hidden pt-lg-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card overflow-hidden">
+                            <div class="row justify-content-center g-0">
+                                <div class="col-lg-6">
+                                    <div class="p-lg-5 p-4 auth-one-bg h-100">
+                                        <div class="bg-overlay"></div>
+                                        <div class="position-relative h-100 d-flex flex-column">
+                                            <div class="mb-4">
+                                                <button id="shareButton" class="btn-icon btn btn-light"><i class="bx bx-share-alt"></i></button>
+                                            </div>
+                                            <div class="mx-auto">
+                                                <img src="{% static 'img/qrcode.png' %}" style='width: 250px;'>
+                                                
+                                                <!-- end carousel -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+
+                                <div class="col-lg-6">
+                                    <div class="p-lg-5 p-4 text-center">
+                                        <div class="avatar-lg mx-auto mt-2">
+                                            <div class="avatar-title bg-light text-success display-3 rounded-circle">
+                                                <i class="ri-checkbox-circle-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 pt-2">
+                                            <h4>Felicitation !</h4>
+                                            <p class="text-muted mx-4">votre achat a bien ete effectue. <br> <span>Oubliez pas d'enregistrer le qr code</span></p>
+                                            <div class="mt-4">
+                                                <a href="/" class="btn btn-success w-100">Back to Tic-Tac</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end col -->
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end card -->
+                    </div>
+                    <!-- end col -->
+
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end auth page content -->
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <p class="mb-0">&copy;
+                                <script>document.write(new Date().getFullYear())</script> Neurons <i class="mdi mdi-heart text-danger"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+    </div>
+    <!-- end auth-page-wrapper -->
+    
+
+    <script>
+    document.getElementById('shareButton').addEventListener('click', async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Titre du partage',
+                    text: 'Texte du partage',
+                    url: 'https://exemple.com'
+                });
+                console.log('Contenu partagé avec succès !');
+            } catch (error) {
+                console.error('Erreur lors du partage:', error);
+            }
+        } else {
+            console.log('L\'API Web Share n\'est pas disponible dans ce navigateur.');
+        }
+    });
+    </script>
+    
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
+</body>
+
+</html>

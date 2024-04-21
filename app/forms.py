@@ -20,7 +20,7 @@ class LoginForm(forms.Form):
 class EventForm(forms.Form):
     class Meta:
         model = Event
-        fields = ('date_debut', 'name', 'user','description','is_free', 'is_narmal', 'is_vip', 'is_premium')
+        fields = ('date_debut', 'name','location', 'user','description','is_free', 'is_narmal', 'is_vip', 'is_premium')
     
 
 class TicketForm(forms.Form):
