@@ -94,8 +94,18 @@ class EventForm(forms.ModelForm):
             self.fields['user'].initial = user  # Affecter l'utilisateur connecté au champ 'user' du formulaire
             self.fields['user'].widget = forms.HiddenInput()
 
+from django.forms import ModelForm, TextInput, NumberInput
+
 class TicketForm(ModelForm):
     class Meta:
         model = Ticket
         fields = ('name', 'event', 'price', 'quantite', 'rang')
+        widgets = {
+            'name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Nom du ticket'}),
+            'event': TextInput(attrs={'class': 'form-control', 'placeholder': 'Événement'}),
+            'price': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Prix'}),
+            'quantite': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Quantité'}),
+            'rang': TextInput(attrs={'class': 'form-control', 'placeholder': 'le numero qui fera le payement'}),
+        }
+
     

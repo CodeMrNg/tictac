@@ -20,122 +20,6 @@
     <!-- App Css-->
     <link href="{% static 'dash/css/app.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <style>
-
-        .help-block {
-            font-size: 13px;
-        }
-    
-        .user-card-full[_ngcontent-c5] .user-profile[_ngcontent-c5] {
-            border-radius: 5px 0 0 5px;
-        }
-    
-    
-        .user-profile[_ngcontent-c5] {
-            padding: 20px 0;
-        }
-    
-        .bg-c-lite-green[_ngcontent-c5] {
-            background: linear-gradient(to right, #ee5a6f, #f29263);
-        }
-    
-        span.help-block {
-            font-size: 13px;
-            color: #eb0f13;
-        }
-    
-    
-        .box {
-            width: 40%;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 35px;
-            border: 2px solid #fff;
-            border-radius: 20px/50px;
-            background-clip: padding-box;
-            text-align: center;
-        }
-    
-        .button {
-            font-size: 1em;
-            padding: 10px;
-            color: #fff;
-            border: 2px solid #06D85F;
-            border-radius: 20px/50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease-out;
-        }
-    
-        .button:hover {
-            background: #06D85F;
-        }
-    
-        .overlay {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            transition: opacity 500ms;
-            visibility: hidden;
-            opacity: 0;
-            z-index: 999;
-        }
-    
-        .overlay:target {
-            visibility: visible;
-            opacity: 1;
-    +
-        }
-    
-        .popup {
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 5px;
-            width: 30%;
-            position: relative;
-            transition: all 2s ease-in-out;
-            margin-top: 90px;
-        }
-    
-        .popup h2 {
-            margin-top: 0;
-            color: #333;
-            font-family: Tahoma, Arial, sans-serif;
-        }
-    
-        .popup .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            transition: all 200ms;
-            font-size: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #999797;
-        }
-    
-        .popup .close:hover {
-            color: #d80606;
-        }
-    
-        .popup .content {
-            max-height: 30%;
-            overflow: auto;
-        }
-    
-        @media screen and (max-width: 700px) {
-            .box {
-                width: 92%;
-            }
-    
-            .popup {
-                width: 92%;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -159,11 +43,10 @@
                                 <div class="col-lg-4">
                                     <div class="sticky-side-div">
                                         <div class="card ribbon-box border shadow-none right">
-                                            <div class="ribbon-two ribbon-two-danger"><span><i class="ri-fire-fill align-bottom"></i> Bientot</span></div>
+                                            <div class="ribbon-two ribbon-two-success"><span><i class="ri-fire-fill align-bottom"></i>Actif</span></div>
                                             <img src="{{event.banniere.url}}" alt="" class="img-fluid rounded">
                                         </div>
                                         <div class="hstack gap-2">
-                                            <a href='#popup'  class="btn btn-success w-100">Place</a>
                                         </div>
                                     </div>
                                 </div><!--end col-->
@@ -174,21 +57,20 @@
                                                 <i class="bx bx-share-alt"></i> Share
                                             </button>
                                         </div>
-                                        <span class="badge bg-info-subtle text-info mb-3 fs-12"><i class="ri-eye-line me-1 align-bottom"></i> 8,634 vue </span>
                                         <h4>{{event.name}}</h4>
                                         <div class="hstack gap-3 flex-wrap">
-                                            <div class="text-muted">Organisateur : <a href="#" class="text-primary fw-medium">{{event.user.name}}</a></div>
+                                            <div class="text-muted">Evenement: <a href="#" class="text-primary fw-medium">{{ticket.event.name}}</a></div>
                                             <div class="vr"></div>
-                                            <div class="text-muted">Date et heure : <span class="text-body fw-medium">{{event.date_debut}}</span></div>
+                                            <div class="text-muted">Date et heure : <span class="text-body fw-medium">{{ticket.event.date_debut}}</span></div>
                                             <div class="vr"></div>
-                                            <div class="text-muted">Lieu: <span class="text-body fw-medium">{{event.location}}</span></div>
+                                            <div class="text-muted">Lieu: <span class="text-body fw-medium">{{ticket.event.location}}</span></div>
                                         </div>
                                         <div class="row mt-4">
                                             <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
-                                                        <p class="text-muted fw-medium mb-1">Premium :</p>
-                                                        <h5 class="fs-17 text-success mb-0">FCFA {{event.is_premium}}</h5>
+                                                        <p class="text-muted fw-medium mb-1">Montant</p>
+                                                        <h5 class="fs-17 text-success mb-0">FCFA {{ticket.price}}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,33 +78,34 @@
                                             <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
-                                                        <p class="text-muted fw-medium mb-1">VIP</p>
-                                                        <h5 class="fs-17 mb-0">FCFA {{event.is_vip}}</h5>
+                                                        <p class="text-muted fw-medium mb-1">Quantite</p>
+                                                        <h5 class="fs-17 mb-0">{{ticket.quantite}}</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end col -->
+                                            <div class="col-lg-3 col-sm-6">
+                                                <form action="" method="post">
+                                                    {% csrf_token %}
+                                                <div class="p-2 border border-dashed rounded text-center">
+                                                    <div>
+                                                        <p class="text-muted fw-medium mb-1">Nombre de validation</p>
+                                                        <h5 class="fs-17 mb-0"><input class="form-control" type="number" max="{{ticket.quantite}}"></h5>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- end col -->
                                             <div class="col-lg-3 col-sm-6">
                                                 <div class="p-2 border border-dashed rounded text-center">
-                                                    <div>
-                                                        <p class="text-muted fw-medium mb-1">Classic</p>
-                                                        <h5 class="fs-17 mb-0">FCFA {{event.is_normal}}</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-3 col-sm-6">
-                                                <div class="p-2 border border-dashed rounded text-center">
-                                                    <div>
-                                                        <p class="text-muted fw-medium mb-1">Auction Ends:</p>
-                                                        <h5 id="auction-time-1" class="mb-0"></h5>
-                                                    </div>
-                                                </div>
+                                                    <button type="submit" class='btn btn-success w-100'>
+                                                        Valider
+                                                    </button>
+                                                </div></form>
                                             </div><!-- end col -->
                                         </div><!--end row-->
                                         <div class="mt-4 text-muted">
-                                            <h5 class="fs-14">Description :</h5>
-                                            <p>{{event.description}}</p>
+                                            <h5 class="fs-14">Rang:</h5>
+                                            <p class='btn btn-danger btn-sm'>PREMIUM</p>
                                         </div>
 
                                     </div>
@@ -237,58 +120,11 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-            <div id="popup" class="overlay">
-                <div class="card popup">
-                    <h4 class="text-center"> <i class="fa fa-exclamation-triangle"
-                            aria-hidden="true"></i> <br> Achat Ticket {{event.name}}
-                    </h4>
-                    <hr>
-                    <form action="" method="post">
-                        {% csrf_token %}
-                    <a class="close" href="#">&times;</a>
-                    <div class="content form-control">
-                        
-                        <div class="mb-2">
-                            <label>Votre Nom</label>
-                            {{form.name}}
-                        </div>
-                        <div class="mb-3">
-                            <label>Choix de Ticket</label>
-                            <select class="form-select" name="price" id="">
-                                <option value="{{event.is_premium}}">Premium ({{event.is_premium}})</option>
-                                <option value="{{event.is_vip}}">VIP ({{event.is_vip}})</option>
-                                <option value="{{event.is_normal}}">Classic ({{event.is_normal}})</option>
-                            </select>
-                            <div class="mb-2">
-                            <label>Quantite</label>
-                            {{form.quantite}}</div>
-                            <div>
-                        </div>
-                        <div class="mb-2">
-                            <label>Numero de telephone</label>
-                            {{form.rang}}
-                        </div>
-                        <input type="text" name="event" value="{{event.id}}" style="display: none;">
-                        <p class="text-danger"> Attention, n'oublier pas de valider la transaction pour recevoir votre ticket.
-                            <br>
-                            Avez-vous compris ?
-                        </p>
-                        <hr>
-                        <a class="clos btn btn-danger btn-block" href="#">Non, je
-                            retourne <i class="fa fa-times" aria-hidden="true"></i></a>
-                        <button type="submit" id="btnFetch"
-                            class="btn btn-success btn-block">
-                            oui, j'ai compris <i class="fa fa-check"
-                                aria-hidden="true"></i></button>
-                            </form>
-                    </div>
-                </div>
-            </div>
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Neurons
+                            <script>document.write(new Date().getFullYear())</script> © Neurons Tic Tac
                         </div>
                     </div>
                 </div>
@@ -300,9 +136,9 @@
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: '{{event.name}}',
+                        title: '{{ticket.event.name}}',
                         text: '',
-                        url: '{% url "new_ticket" event.id %}'
+                        url: '{% url "ticket" ticket.id %}'
                     });
                     console.log('Contenu partagé avec succès !');
                 } catch (error) {

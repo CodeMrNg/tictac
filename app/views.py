@@ -78,12 +78,17 @@ def new_ticket(request, event_id):
         form = TicketForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('success')
     else:
-        form = TicketForm() 
+        form = TicketForm()
 
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'new_ticket.html', {'form': form, 'event':event})
     
 def success(request):
     return render(request, 'success.html')
+
+
+def ticket_detail(request, ticket_id):
+    ticket = get_object_or_404(Ticket, pk=ticket_id)
+    return render(request, 'ticket_detail.html', {'ticket': ticket})

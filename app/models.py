@@ -68,7 +68,7 @@ class Ticket(models.Model):
     name = models.CharField("Nom du ticket", max_length=50)
     price = models.IntegerField('Prix du ticket')
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    rang = models.IntegerField('Rang du ticket')
+    rang = models.IntegerField('phone')
     quantite = models.IntegerField('Combien de ticket voulez vous ?', default = 1)
     class Meta:
         verbose_name = ("Ticket")
