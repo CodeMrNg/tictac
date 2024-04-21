@@ -4,7 +4,15 @@
 {% block link %}
     <link rel="stylesheet" href="{% static 'dash/libs/filepond/filepond.min.css' %}" type="text/css"  />
     <link rel="stylesheet" href="{% static 'dash/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css' %}">
-    
+    <style>
+        .contentDiv {
+            transition: opacity 0.5s ease; /* Transition de fondu */
+        }
+        .hidden {
+            opacity: 0; /* Définir l'opacité à 0 lorsque caché */
+            pointer-events: none; /* Désactiver les événements sur les éléments cachés */
+        }
+    </style>
 {% endblock link %}
 
 
@@ -34,7 +42,7 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                    
+                    <form action="" method="post" enctype="multipart/form-data"> {{form}} <input type="submit" value="okkkkkkkkkkkkkkkkk"></form>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -42,58 +50,62 @@
                                     <h5 class="card-title mb-0">Creer un nouvel Evenement</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
                                         <div class="row g-3">
                                             <div class="col-lg-12">
                                                 <h5 class="fw-semibold mb-3">Affiche ou Banniere</h5>
-                                                <input type="file" class="filepond filepond-input-multiple" multiple name="filepond" data-allow-reorder="true" data-max-file-size="3MB" data-max-files="1">
+                                                {{form.banniere}}
                                             </div><!--end col-->
                                             <div class="col-lg-12">
-                                                <label for="productName" class="form-label">Product Name</label>
-                                                <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                                                <label for="productName" class="form-label">Nom de L'evenement</label>
+                                                {{form.name}}
                                             </div><!--end col-->
                                             <div class="col-lg-12">
-                                                <label for="discription" class="form-label">Discription</label>
-                                                <textarea class="form-control" id="discription" rows="3" placeholder="Enter discription"></textarea>
-                                            </div><!--end col-->
-                                            <div class="col-lg-12">
-                                                <label for="externalLink" class="form-label">External link</label>
-                                                <input type="text" class="form-control" id="externalLink" placeholder="Enter external link">
+                                                <label for="discription" class="form-label">Desciption</label>
+                                                    {{form.description}}
                                             </div><!--end col-->
                                             <div class="col-lg-4">
-                                                <label for="itemPrice" class="form-label">Item Price</label>
-                                                <input type="text" class="form-control" id="itemPrice" placeholder="Price">
-                                            </div><!--end col-->
+                                                <label for="externalLink" class="form-label">Lieu</label>
+                                                {{form.location}}
+                                            </div>
                                             <div class="col-lg-4">
-                                                <label for="size" class="form-label">Size</label>
-                                                <input type="text" class="form-control" id="size" placeholder="Size">
-                                            </div><!--end col-->
+                                                <label for="externalLink" class="form-label">Date et Heure de l'evenement</label>
+                                                {{form.date_debut}}
+                                            </div>
                                             <div class="col-lg-4">
-                                                <label for="properties" class="form-label">Properties</label>
-                                                <input type="text" class="form-control" id="properties" placeholder="Properties">
+                                                <label for="externalLink" class="form-label">Nombre de place</label>
+                                                {{form.place_number}}
                                             </div><!--end col-->
                                             <div class="col-lg-12">
                                                 <div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                                        <label class="form-check-label" for="inlineCheckbox1">Put on sale</label>
+                                                        {{form.is_free}}
+                                                        <label class="form-check-label" for="inlineCheckbox2">L'evenement est gratuit</label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                                        <label class="form-check-label" for="inlineCheckbox2">Instant sale price</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                                        <label class="form-check-label" for="inlineCheckbox3">Unlock one purchased</label>
-                                                    </div>
-                                                </div>
-                                            </div><!--end col-->
-                                            <div class="col-lg-12">
-                                                <div class="text-end">
-                                                    <button class="btn btn-primary">Create Item</button>
                                                 </div>
                                             </div>
-                                        </div><!--end row-->
+                                            <div class="col-lg-4 contentDiv">
+                                                <label for="itemPrice" class="form-label">Ticket Classic Prix</label>
+                                                {{form.is_normal}}
+                                            </div><!--end col-->
+                                            <div  class="col-lg-4 contentDiv">
+                                                <label for="size" class="form-label">Ticket ViP Prix</label>
+                                                {{form.is_vip}}
+                                            </div><!--end col-->
+                                            <div class="col-lg-4 contentDiv">
+                                                <label for="properties" class="form-label">Ticket Premium Prix</label>
+                                                {{form.is_premium}}
+                                            </div>
+                                            <!--end col-->
+                                            {{form.user}}
+                                            <!--end col-->
+                                            <div class="col-lg-12">
+                                                <div class="text-end">
+                                                    <button type="submit" class="btn btn-primary">Creer l'Event</button>
+                                                </div>
+                                            </div>
+                                        </><!--end row-->
                                     </form>
                                 </div>
                             </div>
@@ -122,5 +134,22 @@
 <script src="{% static 'dash/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js' %}"></script>  
 
 <script src="{% static 'dash/js/pages/apps-nft-create.init.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var hideCheckbox = document.getElementById("id_is_free");
+        var contentDivs = document.querySelectorAll(".contentDiv");
 
+        hideCheckbox.addEventListener("change", function() {
+            if (this.checked) {
+                contentDivs.forEach(function(div) {
+                    div.classList.add("hidden");
+                });
+            } else {
+                contentDivs.forEach(function(div) {
+                    div.classList.remove("hidden");
+                });
+            }
+        });
+    });
+</script>
 {% endblock script %} 

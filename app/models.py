@@ -40,10 +40,10 @@ class AllUser(AbstractUser):
     
 class Event(models.Model):
     banniere = models.ImageField("Affiche de l'evenement")
-    name = models.CharField("Nom de l'evenement", max_length=50)
+    name = models.CharField("Nom de l'evenement", max_length=200)
     date_debut = models.DateTimeField('date de debut')
     user = models.ForeignKey(AllUser, on_delete=models.CASCADE)
-    location = models.CharField('Lieu de l\'evenement', max_length=50)
+    location = models.CharField('Lieu de l\'evenement', max_length=100)
     place_number = models.IntegerField('Nombre de place ', default = 0)
     description = models.TextField('description')
     is_actived = models.BooleanField(default=True)
@@ -79,7 +79,3 @@ class Ticket(models.Model):
 
     def get_absolute_url(self):
         return reverse("Ticket_detail", kwargs={"pk": self.pk})
-
-
-
-###########modification

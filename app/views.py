@@ -25,7 +25,7 @@ def signup(request):
         form = AllUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('login')
     else:
         form = AllUserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -53,15 +53,15 @@ def logoutt(request):
     logout(request)
     return redirect('home')
 
-
+@login_required
 def addevent(request):
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
-            form.save()
+            event = form.save()
             return redirect('dash')
     else:
-        form = EventForm()
+        form = EventForm(user=request.user) 
     return render(request, 'addevent.html', {'form': form})
 
 
