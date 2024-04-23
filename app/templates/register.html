@@ -1,6 +1,13 @@
 {% extends 'layouts/log.html' %}
 {% load static %}
-
+{% block link %}
+<style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+{% endblock link %}
 
 {% block main %}
 
@@ -10,11 +17,24 @@
 
             <div class="card-body p-4">
                 <div class="text-center mt-2">
-                    <h5 class="text-primary">Create New Account</h5>
-                    <p class="text-muted">Get your free TIC-TAC account now</p>
+                    <h5 class="text-primary">Créer un nouveau compte</h5>
+                    <p class="text-muted">Obtenez votre compte TIC-TAC</p>
                 </div>
-                <div class="p-2 mt-4">
-                    <form class="needs-validation" method="post">
+                    <div class="text-center">
+                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                            <div id="imagePreview"><img class="rounded-circle avatar-xl img-thumbnail user-profile-image" src="{% static 'img/pp.png' %}" alt=""></div>
+                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                                <label for="id_profil" class="profile-photo-edit avatar-xs">
+                                    <span class="avatar-title rounded-circle bg-light text-body">
+                                        <i class="ri-camera-fill"></i>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <h5 class="fs-16 mb-1">Photo Profil</h5>
+                    </div>
+                <div class="p-2 mt-4">              
+                    <form class="needs-validation" method="post" enctype="multipart/form-data">
                      {% csrf_token %}
                      {{form}}                
                         <div class="mb-4">
@@ -47,6 +67,39 @@
     </div>
 </div>
 <!-- end row -->
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var idProfilInput = document.getElementById('id_profil');
+        var imagePreview = document.getElementById('imagePreview');
+        
+        if (idProfilInput && imagePreview) {
+            idProfilInput.addEventListener('change', function(event) {
+                var file = event.target.files[0];
+                
+                if (file) {
+                    var reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        var image = new Image();
+                        image.src = e.target.result;
+                        image.classList.add('rounded-circle', 'avatar-xl', 'img-thumbnail', 'user-profile-image');
+                        
+                        image.onload = function() {
+                            imagePreview.innerHTML = '';
+                            imagePreview.appendChild(image);
+                        };
+                    };
+                    
+                    reader.readAsDataURL(file);
+                } else {
+                    console.error('Aucun fichier sélectionné.');
+                }
+            });
+        } else {
+            console.error('Les éléments avec les ID id_profil et imagePreview sont introuvables.');
+        }
+    });
+    </script>
+    
 
 {% endblock main %}

@@ -21,6 +21,7 @@ class AllUser(AbstractUser):
     )
     username = None
     #is_verified = models.BooleanField(default=False)
+    profil = models.FileField("Image de Profil",upload_to='Profil/')
     date_inscription = models.DateTimeField(auto_now=True)
     name = models.CharField("Entrer votre nom et prenom", max_length=80)
     email = models.EmailField( max_length=254, unique=True)
@@ -63,13 +64,13 @@ class Event(models.Model):
 
 
 
-
+from django.core.validators import MinValueValidator
 class Ticket(models.Model):
     name = models.CharField("Nom du ticket", max_length=50)
     price = models.IntegerField('Prix du ticket')
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    rang = models.IntegerField('phone')
-    quantite = models.IntegerField('Combien de ticket voulez vous ?', default = 1)
+    rang = models.CharField('phone', max_length=19)
+    quantite = models.IntegerField('Combien de ticket voulez vous ?', default = 1, validators=[MinValueValidator(0)])
     class Meta:
         verbose_name = ("Ticket")
         verbose_name_plural = ("Tickets")

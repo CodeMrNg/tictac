@@ -8,7 +8,7 @@
                 <div class="text-center mt-2">
                     {% for message in messages %}
                     <div style=" position: relative; bottom: 15px;"
-                        class="alert {{ message.tags }} alert-dismissible alert-label-icon rounded-label fade show" role="alert">
+                        class="alert btn-{{ message.tags }} alert-dismissible alert-label-icon rounded-label fade show" role="alert">
                         <i class="ri-notification-off-line label-icon"></i><strong>{{ message.tags }}</strong> - {{ message }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

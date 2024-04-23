@@ -12,7 +12,45 @@
             opacity: 0; /* Définir l'opacité à 0 lorsque caché */
             pointer-events: none; /* Désactiver les événements sur les éléments cachés */
         }
-    </style>
+  .upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  .upload-container:hover {
+    border-color: #333;
+  }
+  .upload-container input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .upload-container label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 10px;
+  }
+  .upload-container label:hover {
+    background-color: #f7f7f7;
+  }
+
+  .image-preview {
+    border: 2px solid blue;
+    padding: 5px;
+    margin-top: 10px;
+  }
+</style>
 {% endblock link %}
 
 
@@ -52,10 +90,14 @@
                                     <form method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="row g-3">                     
-                                            <div class="col-lg-12">
-                                                <h5 class="fw-semibold mb-3">Affiche ou Banniere</h5>
-                                                <input class="filepond-input-multiple" type="file" name="banniere" accept="image/*" required="" id="id_banniere" data-max-file-size="3MB" >
-                                            </div><!--end col-->
+                                                <h5 class="fw-semibold mb-3"></h5>
+                                                <div class="upload-container">
+                                                    <input class="" type="file" name="banniere" accept="image/*" required="" id="id_banniere" data-max-file-size="3MB">
+                                                    <label for="id_banniere" id="labelBanniere">
+                                                       Ajouter l'affiche de l'événement
+                                                    </label><div id="imagePreview" class="mt-3 w-100"></div>
+                                                </div>
+                                                
                                             <div class="col-lg-12">
                                                 <label for="productName" class="form-label">Nom de L'evenement</label>
                                                 {{form.name}}
@@ -124,7 +166,41 @@
 
 
 {% block script %}
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var inputBanniere = document.getElementById('id_banniere');
+        var imagePreview = document.getElementById('imagePreview');
+        
+        if (inputBanniere && imagePreview) {
+            inputBanniere.addEventListener('change', function(event) {
+                var file = event.target.files[0];
+                
+                if (file) {
+                    var reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        var image = new Image();
+                        image.src = e.target.result;
+                        image.classList.add('rounded', 'img-fluid'); // Ajoutez des classes Bootstrap ou personnalisées si nécessaire
+                        
+                        image.onload = function() {
+                            imagePreview.innerHTML = '';
+                            imagePreview.appendChild(image);
+                        };
+                    };
+                    
+                    reader.readAsDataURL(file);
+                } else {
+                    console.error('Aucun fichier sélectionné.');
+                }
+            });
+        } else {
+            console.error('Les éléments avec les ID id_banniere et imagePreview sont introuvables.');
+        }
+    });
+    </script>
+    
+    
 
 <script src="{% static 'dash/libs/filepond/filepond.min.js' %}"></script>
 <script src="{% static 'dash/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js' %}"></script>

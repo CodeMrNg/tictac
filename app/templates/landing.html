@@ -36,8 +36,8 @@
             <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
                 <div class="container-fluid custom-container">
                     <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'img/logo2.png' %}" class="card-logo card-logo-dark" alt="logo dark" height="60">
-                        <img src="{% static 'img/logo3.png' %}" class="card-logo card-logo-light" alt="logo light" height="60">
+                        <img src="{% static 'img/logo3.png' %}" class="card-logo card-logo-dark" alt="logo dark" height="60">
+                        <img src="{% static 'img/logo2.png' %}" class="card-logo card-logo-light" alt="logo light" height="60">
                     </a>
                     <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="mdi mdi-menu"></i>
@@ -46,22 +46,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#hero">Home</a>
+                                <a class="nav-link active" href="#hero">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#process">Process</a>
+                                <a class="nav-link" href="#process">Processus</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#categories">Categories</a>
+                                <a class="nav-link" href="#candidates">Partenaires</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#findJob">Find Jobs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#candidates">Candidates</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#blog">Blog</a>
+                                <a class="nav-link" href="#blog">Evénements récents</a>
                             </li>
                         </ul>
                         {% if user.is_authenticated %}
@@ -70,7 +64,7 @@
                         </div>
                             {% else %}
                             <div class="">
-                                <a href="{% url "login" %}" class="btn btn-soft-primary"><i class="ri-user-3-line align-bottom me-1"></i> Login & Register</a>
+                                <a href="{% url "login" %}" class="btn btn-soft-primary"><i class="ri-user-3-line align-bottom me-1"></i>S'inscrire</a>
                             </div>
                             {% endif %}
 
@@ -87,31 +81,32 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-lg-6">
                             <div>
-                                <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base">Trouvez Votre Prochain</h1>
-                                <p class="lead text-muted lh-base mb-4">Participez a des evenement en un seul clic</p>
+                                <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base">Trouvez Votre Prochain événement</h1>
+                                <p class="lead text-muted lh-base mb-4">Participez à des événements en un seul click</p>
                                 <form action="#" class="job-panel-filter">
                                     <div class="row g-md-0 g-2">
                                         <div class="col-md-4">
                                             <div>
-                                                <input type="search" id="job-title" class="form-control filter-input-box" placeholder="Nom evenement...">
+                                                <input type="search" id="job-title" class="form-control filter-input-box" placeholder="Nom de l'événement...">
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-md-4">
                                             <div>
                                                 <select class="form-control" data-choices>
-                                                    <option value="">Select type event</option>
+                                                    <option value="">Choisir un événement</option>
                                                     <option value="Full Time">Mariage</option>
                                                     <option value="Part Time">Seminaire</option>
                                                     <option value="Freelance">Concert</option>
                                                     <option value="Intership">Annivairsaire</option>
+                                                    <option value="Intership">Forum</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-md-4">
                                             <div class="h-100">
-                                                <button class="btn btn-primary submit-btn w-100 h-100" type="submit"><i class="ri-search-2-line align-bottom me-1"></i> Find event</button>
+                                                <button class="btn btn-primary submit-btn w-100 h-100" type="submit"><i class="ri-search-2-line align-bottom me-1"></i>Recherchez un événement</button>
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -143,9 +138,9 @@
                                 </div>
 
                                 <div class="card p-3 rounded shadow-lg application-box">
-                                    <h5 class="fs-15 lh-base mb-3">Applications Mobile</h5>
+                                    <h5 class="fs-15 lh-base mb-3">Application Mobile</h5>
                                     <div class="avatar-group">
-                                        <button class="text-center btn btn-soft-primary w-100" >Telecharger</button>
+                                        <button class="text-center btn btn-soft-primary w-100" >Télécharger</button>
                                     </div>
                                 </div>
                                 <img src="{% static 'dash/images/job-profile2.png' %}" alt="" class="user-img">
@@ -165,8 +160,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <div class="text-center mb-5">
-                                <h1 class="mb-3 ff-secondary fw-semibold lh-base">Comment  <span class="text-primary">faire</span> pour creer mes tickets d'evenement?</h1>
-                                <p class="text-muted">A creative person has the ability to invent and develop original ideas, especially in the arts. Like so many creative people, he was never satisfied.</p>
+                                <h1 class="mb-3 ff-secondary fw-semibold lh-base">Comment  <span class="text-primary">faire</span> pour créer mes tickets d'événement ?</h1>
+                                <p class="text-muted">La création des tickets événementiels s'étend sur plusieurs volets ou aspects formant ainsi un processus orientant tout utilisateur.</p>
                             </div>
                         </div>
                         <!-- end col -->
@@ -180,8 +175,8 @@
                                         <div class="job-icon-effect"></div>
                                         <span>1</span>
                                     </h1>
-                                    <h6 class="fs-17 mb-2">Register Account</h6>
-                                    <p class="text-muted mb-0 fs-15">First, You need to make a account.</p>
+                                    <h6 class="fs-17 mb-2">Création de compte</h6>
+                                    <p class="text-muted mb-0 fs-15">Cette première phase consiste à s'identifier en créant un compte ou en se connectant à son compte.</p>
                                 </div>
                             </div>
                         </div>
@@ -192,8 +187,8 @@
                                         <div class="job-icon-effect"></div>
                                         <span>2</span>
                                     </h1>
-                                    <h6 class="fs-17 mb-2">Create Resume</h6>
-                                    <p class="text-muted mb-0 fs-15">Create a resume for your job.</p>
+                                    <h6 class="fs-17 mb-2">Ajout d'un évènement</h6>
+                                    <p class="text-muted mb-0 fs-15">Cette deuxième phase consiste à ajouter et/ou à créer un événement selon son besoin.</p>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +200,8 @@
                                         <span>3</span>
                                     </h1>
 
-                                    <h6 class="fs-17 mb-2">Find Job</h6>
-                                    <p class="text-muted mb-0 fs-15">Search for your dream jobs from velzon.</p>
+                                    <h6 class="fs-17 mb-2">Partage du lien</h6>
+                                    <p class="text-muted mb-0 fs-15">Après ajout, elle consiste à partager le lien de son événement pour une éventuelle communication.</p>
                                 </div>
                             </div>
                         </div>
@@ -217,8 +212,8 @@
                                         <div class="job-icon-effect"></div>
                                         <span>4</span>
                                     </h1>
-                                    <h6 class="fs-17 mb-2">Apply Job</h6>
-                                    <p class="text-muted mb-0 fs-15">Apply to the compnay and wait for interview.</p>
+                                    <h6 class="fs-17 mb-2">Obtention des tickets</h6>
+                                    <p class="text-muted mb-0 fs-15">En partageant le lien de son événement, l'utilisateur est redirigé sur une page détail où il effectuera son paiement.</p>
                                 </div>
                             </div>
                         </div>
@@ -240,18 +235,18 @@
                                                 <i class="ri-briefcase-2-line"></i>
                                             </div>
                                         </div>
-                                        <h5 class="fs-15 lh-base mb-0">Search Over <span class="text-secondary fw-semibold">1,00,000+</span> Jobs</h5>
+                                        <h5 class="fs-15 lh-base mb-0"> Satisfaction <span class="text-secondary fw-semibold"> +10.000 </span> Utilisateurs</h5>
                                     </div>
                                 </div>
 
                                 <div class="card feedback-box">
                                     <div class="card-body d-flex shadow-lg">
                                         <div class="flex-shrink-0 me-3">
-                                            <img src="assets/images/users/avatar-10.jpg" alt="" class="avatar-sm rounded-circle">
+                                            <img src="{% static 'dash/images/neuronslogo1.png' %}" alt="" class="avatar-sm rounded-circle">
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h5 class="fs-14 lh-base mb-0">Tonya Noble</h5>
-                                            <p class="text-muted fs-11 mb-1">UI/UX Designer</p>
+                                            <h5 class="fs-14 lh-base mb-0">Neurons</h5>
+                                            <p class="text-muted fs-11 mb-1">Bienvenu dans le futur ...</p>
 
                                             <div class="text-warning">
                                                 <i class="ri-star-s-fill"></i>
@@ -268,9 +263,9 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="text-muted">
-                                <h1 class="mb-3 lh-base">Find Your <span class="text-primary">Dream Job</span> in One Place</h1>
-                                <p class="ff-secondary fs-16 mb-2">The first step in finding your <b>dream job </b> is deciding where to look for first-hand insight. Contact professionals who are already working in industries or positions that interest you.</p>
-                                <p class="ff-secondary fs-16">Schedule informational interviews and phone calls or ask for the opportunity to shadow them on the job.</p>
+                                <h1 class="mb-3 lh-base">Trouve ton <span class="text-primary">événement</span> en un click</h1>
+                                <p class="ff-secondary fs-16 mb-2">Tic-Tac est une application <b>événementielle multifonction </b> qui offre une gamme variée de possibilité à l'utilisateur d'être toujours informé sur toute l'actualité événementiel du pays et même à l'échel internationel.</p>
+                                <p class="ff-secondary fs-16">Tic - Tac est une application axée sur l’événementiel. Elle offre des services et des fonctionnalités plus adaptés répondants aux besoins de la sociétés culturelle et artistique</p>
 
                                 <div class="vstack gap-2 mb-4 pb-1">
                                     <div class="d-flex align-items-center">
@@ -282,7 +277,7 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <p class="mb-0">Dynamic Conetnt</p>
+                                            <p class="mb-0">Restéz connecter via notre système de notification.</p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center">
@@ -294,7 +289,7 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <p class="mb-0">Setup plugin's information.</p>
+                                            <p class="mb-0">Recherchez toutes vos actualités événementielles.</p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center">
@@ -306,13 +301,25 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <p class="mb-0">Themes customization information</p>
+                                            <p class="mb-0">Payez vos ticket en ligne n’importe où que vous soyez en toute sécurité.</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0 me-2">
+                                            <div class="avatar-xs icon-effect">
+                                                <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                    <i class="ri-check-fill"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-0">Garantit la sécurité des données par un système d’authentification</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <a href="#!" class="btn btn-primary">Find Your Jobs <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
+                                    <a href="#!" class="btn btn-primary">Evénements disponibles<i class="ri-arrow-right-line align-bottom ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -331,14 +338,14 @@
                     <div class="row align-items-center gy-4">
                         <div class="col-sm">
                             <div>
-                                <h4 class="text-white mb-2">Ready to Started?</h4>
-                                <p class="text-white-50 mb-0">Create new account and refer your friend</p>
+                                <h4 class="text-white mb-2">Le saviez-vous vraiment ?</h4>
+                                <p class="text-white-50 mb-0">Créez un compte et invitez également vos amis.</p>
                             </div>
                         </div>
                         <!-- end col -->
                         <div class="col-sm-auto">
                             <div>
-                                <a href="#!" class="btn bg-gradient btn-danger">Create Free Account</a>
+                                <a href="#!" class="btn bg-gradient btn-danger">S'inscrire</a>
                             </div>
                         </div>
                         <!-- end col -->
@@ -354,13 +361,13 @@
                     <div class="row align-items-center gy-4">
                         <div class="col-lg-6 order-2 order-lg-1">
                             <div class="text-muted mt-5 mt-lg-0">
-                                <h5 class="fs-12 text-uppercase text-success">Hot Featured Company</h5>
-                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Get <span class="text-primary">10,000+</span> Featured Companies</h1>
-                                <p class="ff-secondary mb-2">The demand for content writing services is growing. This is because content is required in almost every industry. <b>Many companies have discovered how effective content marketing is.</b> This is a major reason for this increase in demand.</p>
-                                <p class="mb-4 ff-secondary">A Content Writer is a professional who writes informative and engaging articles to help brands showcase their products.</p>
+                                <h5 class="fs-12 text-uppercase text-success">Tic-Tac</h5>
+                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Super !!! <span class="text-primary">+100,000</span> utisateurs à travers le monde</h1>
+                                <p class="ff-secondary mb-2">Tic-Tac centralise ou réunit l'événementiel mondial pour le mettre à disposition de tous. <b> Il incarne l'innovation technologique </b> non seulement par son aspect multifonction mais répond au besoin de la société.</p>
+                                <p class="mb-4 ff-secondary">Tic-Tac, une solution créative, connectant le monde événementiel ...</p>
 
                                 <div class="mt-4">
-                                    <a href="index.html" class="btn btn-primary">View More Companies <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                    <a href="index.html" class="btn btn-primary">Espace compte <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -372,75 +379,75 @@
                                         <button type="button" class="btn btn-icon btn-soft-primary float-end" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                                         <div class="avatar-sm mb-4">
                                             <div class="avatar-title bg-soft-secondary rounded">
-                                                <img src="assets/images/companies/img-1.png" alt="" class="avatar-xxs">
+                                                <img src="{% static 'dash/images/OSIANE_logo1.png' %}" alt="logo_OSIANE" class="avatar-xs">
                                             </div>
                                         </div>
-                                        <a href="#!">
-                                            <h5>New Web designer</h5>
+                                        <a href="https://www.osiane.cg/">
+                                            <h5>OSIANE | Partenaire Officiel</h5>
                                         </a>
-                                        <p class="text-muted">Themesbrand</p>
+                                        <p class="text-muted"></p>
 
                                         <div class="d-flex gap-4 mb-3">
                                             <div>
-                                                <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido,California
+                                                <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Brazzaville - République du Congo
                                             </div>
 
-                                            <div>
-                                                <i class="ri-time-line text-primary me-1 align-bottom"></i> 3 min ago
-                                            </div>
+                                            <!-- <div>
+                                                <i class="ri-time-line text-primary me-1 align-bottom"></i> 
+                                            </div> -->
                                         </div>
 
-                                        <p class="text-muted">As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent.</p>
+                                        <p class="text-muted">OSIANE est la dénomination usuelle du Salon International de la Tech et de l’Innovation de l’Afrique Centrale qui se tient chaque année depuis 2017 ...</p>
 
                                         <div class="hstack gap-2">
-                                            <span class="badge badge-soft-success">Full Time</span>
-                                            <span class="badge badge-soft-primary">Freelance</span>
-                                            <span class="badge badge-soft-danger">Urgent</span>
+                                            <span class="badge badge-soft-success">Atelier</span>
+                                            <span class="badge badge-soft-primary">Star-Up</span>
+                                            <span class="badge badge-soft-danger">Challenge</span>
+                                            <span class="badge badge-soft-secondary">Pitch</span>
                                         </div>
 
                                         <div class="mt-4 hstack gap-2">
-                                            <a href="#!" class="btn btn-soft-primary w-100">Apply Job</a>
+                                            <a href="https://www.osiane.cg/a-propos/" class="btn btn-soft-primary w-100">En savoir plus</a>
                                             <a href="#!" class="btn btn-soft-success w-100">Overview</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card shadow-lg bg-info mb-0 features-company-widgets rounded-3">
                                     <div class="card-body">
-                                        <h5 class="text-white fs-16 mb-4">10,000+ Featured Companies</h5>
-
+                                        <h5 class="text-white fs-16 mb-4">Structuration Ed. 2024</h5>
                                         <div class="d-flex gap-1">
                                             <a href="javascript: void(0);" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
                                                 <div class="avatar-xs">
                                                     <div class="avatar-title bg-light bg-opacity-25 rounded-circle">
-                                                        <img src="assets/images/companies/img-5.png" alt="" height="15">
+                                                        <img src="{% static 'dash/images/academie.jpg' %}" alt="" height="15">
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="javascript: void(0);" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
                                                 <div class="avatar-xs">
                                                     <div class="avatar-title bg-light bg-opacity-25 rounded-circle">
-                                                        <img src="assets/images/companies/img-2.png" alt="" height="15">
+                                                        <img src="{% static 'dash/images/viso-1.jpg' %}" alt="" height="15">
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="javascript: void(0);" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
                                                 <div class="avatar-xs">
                                                     <div class="avatar-title bg-light bg-opacity-25 rounded-circle">
-                                                        <img src="assets/images/companies/img-8.png" alt="" height="15">
+                                                        <img src="{% static 'dash/images/vico.jpg' %}" alt="" height="15">
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="javascript: void(0);" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
                                                 <div class="avatar-xs">
                                                     <div class="avatar-title bg-light bg-opacity-25 rounded-circle">
-                                                        <img src="assets/images/companies/img-7.png" alt="" height="15">
+                                                        <img src="{% static 'dash/images/boost.jpg ' %}" alt="" height="15">
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="javascript: void(0);" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="More Companies">
                                                 <div class="avatar-xs">
                                                     <div class="avatar-title fs-11 rounded-circle bg-light bg-opacity-25 text-white">
-                                                        1k+
+                                                        4+
                                                     </div>
                                                 </div>
                                             </a>
@@ -463,8 +470,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <div class="text-center mb-5">
-                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Hire Experts <span class="text-primary">Team</span></h1>
-                                <p class="text-muted mb-4">Hiring experts costs more per hour than hiring entry- or mid-level freelancers, but they can usually get the work done faster—and better.</p>
+                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Ceux qui nous font <span class="text-primary">confiance</span></h1>
+                                <p class="text-muted mb-4">En-dehors d'OSIANE, d'autres structures de grande renommée dans les secteurs publics comme privés nous accompagnent vivement dans ce projet.</p>
                             </div>
                         </div>
                         <!-- end col -->
@@ -477,75 +484,210 @@
                                     <div class="swiper-slide">
                                         <div class="card text-center">
                                             <div class="card-body p-4">
-                                                <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle avatar-md mx-auto d-block">
-                                                <h5 class="fs-17 mt-3 mb-2">Nancy Martino</h5>
-                                                <p class="text-muted fs-13 mb-3">Creative Designer</p>
+                                                <img src="{% static 'dash/images/cg-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Ministère des Postes Télécommunications et de l’Economie Numérique</h5>
+                                                <p class="text-muted fs-13 mb-3">Numérique</p>
 
                                                 <p class="text-muted mb-4 fs-14">
-                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido, California
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
                                                 </p>
 
-                                                <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                                <a href="#!" class="btn btn-primary w-100">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="card text-center">
                                             <div class="card-body p-4">
-                                                <img src="assets/images/users/avatar-3.jpg" alt="" class="rounded-circle avatar-md mx-auto d-block">
-                                                <h5 class="fs-17 mt-3 mb-2">Glen Matney</h5>
-                                                <p class="text-muted fs-13 mb-3">Marketing Director</p>
+                                                <img src="{% static 'dash/images/arpce-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">ARPCE</h5>
+                                                <p class="text-muted fs-13 mb-3">Numérique </p>
                                         
                                                 <p class="text-muted mb-4 fs-14">
-                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido, California
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
                                                 </p>
                                         
-                                                <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                                <a href="https://www.arpce.cg/" class="btn btn-primary w-100">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="card text-center">
                                             <div class="card-body p-4">
-                                                <img src="assets/images/users/avatar-10.jpg" alt="" class="rounded-circle avatar-md mx-auto d-block">
-                                                <h5 class="fs-17 mt-3 mb-2">Alexis Clarke</h5>
-                                                <p class="text-muted fs-13 mb-3">Product Manager</p>
+                                                <img src="{% static 'dash/images/canalplus-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Canal+</h5>
+                                                <p class="text-muted fs-13 mb-3">Groupe</p>
                                         
                                                 <p class="text-muted mb-4 fs-14">
-                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido, California
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
                                                 </p>
                                         
-                                                <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                                <a href="https://www.canalplus.com/cg/" class="btn btn-primary w-100">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="card text-center">
                                             <div class="card-body p-4">
-                                                <img src="assets/images/users/avatar-8.jpg" alt="" class="rounded-circle avatar-md mx-auto d-block" />
-                                                <h5 class="fs-17 mt-3 mb-2">James Price</h5>
-                                                <p class="text-muted fs-13 mb-3">Product Designer</p>
+                                                <img src="{% static 'dash/images/canalbox-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100" />
+                                                <h5 class="fs-17 mt-3 mb-2">Canalbox</h5>
+                                                <p class="text-muted fs-13 mb-3">Groupe</p>
                                         
                                                 <p class="text-muted mb-4 fs-14">
-                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido, California
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
                                                 </p>
                                         
-                                                <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                                <a href="https://www.canalbox.cg/" class="btn btn-primary w-100">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="card text-center">
                                             <div class="card-body p-4">
-                                                <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-md mx-auto d-block" />
-                                                <h5 class="fs-17 mt-3 mb-2">Michael Morris</h5>
-                                                <p class="text-muted fs-13 mb-3">Full Stack Developer</p>
+                                                <img src="{% static 'dash/images/congotelecom-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100" />
+                                                <h5 class="fs-17 mt-3 mb-2">Congo Télécom</h5>
+                                                <p class="text-muted fs-13 mb-3">Télécommunication</p>
                                         
                                                 <p class="text-muted mb-4 fs-14">
-                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> Escondido, California
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
                                                 </p>
                                         
-                                                <a href="#!" class="btn btn-primary w-100">View Profile</a>
+                                                <a href="https://www.congotelecom.cg/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/mtn-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">MTN-CONGO</h5>
+                                                <p class="text-muted fs-13 mb-3">Téléphonie mobile</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.mtn.cg/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/airtel-2-1.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Airtel CONGO</h5>
+                                                <p class="text-muted fs-13 mb-3">Téléphonie mobile</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.airtel.cg/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/snpc-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">GROUPE SNPC</h5>
+                                                <p class="text-muted fs-13 mb-3">Industrie Pétrolière</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.snpc-group.com/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/logo_IF_-_noir-removebg-preview_1.jpg' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">IFC Pointe-Noire</h5>
+                                                <p class="text-muted fs-13 mb-3">Opérateur d'Action Culturelle</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.ifc-pointenoire.com/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/IFC_Brazzaville.jpeg' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">IFC Brazzaville</h5>
+                                                <p class="text-muted fs-13 mb-3">Opérateur d'Action Culturelle</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>République du Congo
+                                                </p>
+                                        
+                                                <a href="https://institutfrancais-congo.com/brazzaville/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/Tele_Congo.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Télé Congo</h5>
+                                                <p class="text-muted fs-13 mb-3">Chaîne de Télévision (Média)</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.youtube.com/@telecongo" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/LOGO-DRTV-1536x522.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">DRTV Congo</h5>
+                                                <p class="text-muted fs-13 mb-3">Chaîne de Télévision (Média)</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.facebook.com/drtvinternationalhd/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/e2c-2.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Energie Elèctrique du Congo</h5>
+                                                <p class="text-muted fs-13 mb-3">Production d'Electricité</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://e2c.cg/" class="btn btn-primary w-100">Voir plus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card text-center">
+                                            <div class="card-body p-4">
+                                                <img src="{% static 'dash/images/ecobank.png' %}" alt="" class="rounded-circle mx-auto d-block" width="100">
+                                                <h5 class="fs-17 mt-3 mb-2">Ecobank</h5>
+                                                <p class="text-muted fs-13 mb-3">Banque & Finance</p>
+                                        
+                                                <p class="text-muted mb-4 fs-14">
+                                                    <i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i> République du Congo
+                                                </p>
+                                        
+                                                <a href="https://www.ecobank.com/cg/personal-banking" class="btn btn-primary w-100">Voir plus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -564,8 +706,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <div class="text-center mb-5">
-                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Our Latest <span class="text-primary">News</span></h1>
-                                <p class="text-muted mb-4">We thrive when coming up with innovative ideas but also understand that a smart concept should be supported with faucibus sapien odio measurable results.</p>
+                                <h1 class="mb-3 ff-secondary fw-semibold text-capitalize lh-base">Tous les événements <span class="text-primary">Récents</span></h1>
+                                <p class="text-muted mb-4">Restez connecter sur toute l'actualité évenementielle récente de notre pays et même au niveau international </p>
                             </div>
                         </div>
                     </div>
@@ -575,24 +717,24 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <img src="assets/images/small/img-8.jpg" alt="" class="img-fluid rounded" />
+                                    <img src="{% static 'dash/images/auth-one-bg.jpg' %}" alt="" class="img-fluid rounded" />
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-inline fs-14 text-muted">
                                         <li class="list-inline-item">
-                                            <i class="ri-calendar-line align-bottom me-1"></i> 30 Oct, 2021
+                                            <i class="ri-calendar-line align-bottom me-1"></i> Date
                                         </li>
                                         <li class="list-inline-item">
-                                            <i class="ri-message-2-line align-bottom me-1"></i> 364 Comment
+                                            <i class="ri-message-2-line align-bottom me-1"></i> Type d'événement
                                         </li>
                                     </ul>
                                     <a href="javascript:void(0);">
-                                        <h5>Design your apps in your own way ?</h5>
+                                        <h5>Titre de l'événement</h5>
                                     </a>
-                                    <p class="text-muted fs-14">One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others.</p>
+                                    <p class="text-muted fs-14">Description</p>
                                     
                                     <div>
-                                        <a href="#!" class="link-success">Learn More <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
+                                        <a href="#!" class="link-success">Détail de l'événement <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -600,24 +742,24 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <img src="assets/images/small/img-6.jpg" alt="" class="img-fluid rounded" />
+                                    <img src="{% static 'dash/images/auth-one-bg.jpg' %}" alt="" class="img-fluid rounded" />
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-inline fs-14 text-muted">
                                         <li class="list-inline-item">
-                                            <i class="ri-calendar-line align-bottom me-1"></i> 02 Oct, 2021
+                                            <i class="ri-calendar-line align-bottom me-1"></i> Date
                                         </li>
                                         <li class="list-inline-item">
-                                            <i class="ri-message-2-line align-bottom me-1"></i> 245 Comment
+                                            <i class="ri-message-2-line align-bottom me-1"></i> Type d'événement
                                         </li>
                                     </ul>
                                     <a href="javascript:void(0);">
-                                        <h5>Smartest Applications for Business ?</h5>
+                                        <h5>Titre de l'événement</h5>
                                     </a>
-                                    <p class="text-muted fs-14">Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception.</p>
-                        
+                                    <p class="text-muted fs-14">Description</p>
+                                    
                                     <div>
-                                        <a href="#!" class="link-success">Learn More <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
+                                        <a href="#!" class="link-success">Détail de l'événement <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -625,24 +767,24 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <img src="assets/images/small/img-9.jpg" alt="" class="img-fluid rounded" />
+                                    <img src="{% static 'dash/images/auth-one-bg.jpg' %}" alt="" class="img-fluid rounded" />
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-inline fs-14 text-muted">
                                         <li class="list-inline-item">
-                                            <i class="ri-calendar-line align-bottom me-1"></i> 23 Sept, 2021
+                                            <i class="ri-calendar-line align-bottom me-1"></i> Date
                                         </li>
                                         <li class="list-inline-item">
-                                            <i class="ri-message-2-line align-bottom me-1"></i> 354 Comment
+                                            <i class="ri-message-2-line align-bottom me-1"></i> Type d'événement
                                         </li>
                                     </ul>
                                     <a href="javascript:void(0);">
-                                        <h5>How apps is changing the IT world</h5>
+                                        <h5>Titre de l'événement</h5>
                                     </a>
-                                    <p class="text-muted fs-14">Intrinsically incubate intuitive opportunities and real-time potentialities Appropriately communicate one-to-one technology.</p>
-                        
+                                    <p class="text-muted fs-14">Description</p>
+                                    
                                     <div>
-                                        <a href="#!" class="link-success">Learn More <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
+                                        <a href="#!" class="link-success">Détail de l'événement <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -661,13 +803,13 @@
                     <div class="row align-items-center gy-4">
                         <div class="col-sm">
                             <div>
-                                <h4 class="text-white fw-semibold">Get New Jobs Notification!</h4>
-                                <p class="text-white-75 mb-0">Subscribe & get all related jobs notification.</p>
+                                <h4 class="text-white fw-semibold">Recevez toutes les notifications !</h4>
+                                <p class="text-white-75 mb-0">Inscrivez-vous et restez connecter au monde événementiel.</p>
                             </div>
                         </div>
                         <!-- end col -->
                         <div class="col-sm-auto">
-                            <button class="btn btn-danger" type="button">Subscribe Now <i class="ri-arrow-right-line align-bottom"></i></button>
+                            <button class="btn btn-danger" type="button"> <i class="ri-arrow-right-line align-bottom"></i></button>
                         </div>
                         <!-- end col -->
                     </div>
@@ -684,28 +826,28 @@
                         <div class="col-lg-4 mt-4">
                             <div>
                                 <div>
-                                    <img src="assets/images/logo-light.png" alt="logo light" height="17" />
+                                    <img src="{% static 'img/logo2.png' %}" alt="logo_footer" height="90" />
                                 </div>
                                 <div class="mt-4 fs-13">
-                                    <p>Premium Multipurpose Admin & Dashboard Template</p>
-                                    <p>You can build any type of web application like eCommerce, CRM, CMS, Project management apps, Admin Panels, etc using Velzon.</p>
+                                    <p>Version standard et Premium avec multifonction</p>
+                                    <p>Tic-Tac, votre application événementiel. Partout où vous allez, restez connecter à toute l'actualité événementiel au niveau national et international.</p>
                                     <ul class="list-inline mb-0 footer-social-link">
                                         <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="avatar-xs d-block">
+                                            <a href="https://www.facebook.com/share/TswoVWW3aR9Ba2af/?mibextid=qi2Omg" class="avatar-xs d-block">
                                                 <div class="avatar-title rounded-circle">
                                                     <i class="ri-facebook-fill"></i>
                                                 </div>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="avatar-xs d-block">
+                                            <a href="https://wa.me/242066784797" class="avatar-xs d-block">
                                                 <div class="avatar-title rounded-circle">
-                                                    <i class="ri-github-fill"></i>
+                                                    <i class="ri-whatsapp-fill"></i>
                                                 </div>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="avatar-xs d-block">
+                                            <a href="https://www.linkedin.com/company/neuronsgroup/" class="avatar-xs d-block">
                                                 <div class="avatar-title rounded-circle">
                                                     <i class="ri-linkedin-fill"></i>
                                                 </div>
@@ -714,14 +856,7 @@
                                         <li class="list-inline-item">
                                             <a href="javascript: void(0);" class="avatar-xs d-block">
                                                 <div class="avatar-title rounded-circle">
-                                                    <i class="ri-google-fill"></i>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="javascript: void(0);" class="avatar-xs d-block">
-                                                <div class="avatar-title rounded-circle">
-                                                    <i class="ri-dribbble-line"></i>
+                                                    <i class="ri-instagram-line"></i>
                                                 </div>
                                             </a>
                                         </li>
@@ -733,34 +868,34 @@
                         <div class="col-lg-7 ms-lg-auto">
                             <div class="row">
                                 <div class="col-sm-4 mt-4">
-                                    <h5 class="text-white mb-0">Company</h5>
+                                    <h5 class="text-white mb-0">Processus clés</h5>
                                     <div class="text-muted mt-3">
                                         <ul class="list-unstyled ff-secondary footer-list">
-                                            <li><a href="pages-profile.html">About Us</a></li>
-                                            <li><a href="pages-gallery.html">Gallery</a></li>
-                                            <li><a href="pages-team.html">Team</a></li>
-                                            <li><a href="pages-pricing.html">Pricing</a></li>
-                                            <li><a href="pages-timeline.html">Timeline</a></li>
+                                            <li><a href="#!">Inscription</a></li>
+                                            <li><a href="#!">Dashboard</a></li>
+                                            <li><a href="#!"></a>Création événement</li>
+                                            <li><a href="#!"></a>Evénements récents</li>
+                                            <li><a href="#!">Paiement ticket</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mt-4">
-                                    <h5 class="text-white mb-0">For Jobs</h5>
+                                    <h5 class="text-white mb-0">Type d'événements</h5>
                                     <div class="text-muted mt-3">
                                         <ul class="list-unstyled ff-secondary footer-list">
-                                            <li><a href="apps-job-lists.html">Job List</a></li>
-                                            <li><a href="apps-job-application.html">application</a></li>
-                                            <li><a href="apps-job-new.html">New Job</a></li>
-                                            <li><a href="apps-job-companies-lists.html">Company List</a></li>
+                                            <li><a href="#!">Mariage</a></li>
+                                            <li><a href="#!">Anniversaire</a></li>
+                                            <li><a href="#!">Forum</a></li>
+                                            <li><a href="#!">Concert</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mt-4">
-                                    <h5 class="text-white mb-0">Support</h5>
+                                    <h5 class="text-white mb-0">Application</h5>
                                     <div class="text-muted mt-3">
                                         <ul class="list-unstyled ff-secondary footer-list">
-                                            <li><a href="pages-faqs.html">FAQ</a></li>
-                                            <li><a href="pages-faqs.html">Contact</a></li>
+                                            <li><a href="#!">Web</a></li>
+                                            <li><a href="#!">Mobile</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -773,7 +908,7 @@
                         <div class="col-sm-6">
                             <div>
                                 <p class="copy-rights mb-0">
-                                    <script> document.write(new Date().getFullYear()) </script> © Velzon - Themesbrand
+                                    <script> document.write(new Date().getFullYear()) </script> © Développée par le Service Technique de Neurons
                                 </p>
                             </div>
                         </div>
@@ -781,13 +916,13 @@
                             <div class="text-sm-end mt-3 mt-sm-0">
                                 <ul class="list-inline mb-0 footer-list gap-4 fs-13">
                                     <li class="list-inline-item">
-                                        <a href="pages-privacy-policy.html">Privacy Policy</a>
+                                        <a href="pages-privacy-policy.html">Politique de confidentialité</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="pages-term-conditions.html">Terms & Conditions</a>
+                                        <a href="pages-term-conditions.html">Termes et conditions</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="pages-privacy-policy.html">Security</a>
+                                        <a href="pages-privacy-policy.html">Sécurité</a>
                                     </li>
                                 </ul>
                             </div>

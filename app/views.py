@@ -78,7 +78,8 @@ def new_ticket(request, event_id):
         form = TicketForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('success')
+            ticket = Ticket.objects.get(pk=form.instance.id)
+            return redirect(f'/accounts/success/{ticket.id}')
     else:
         form = TicketForm()
 
@@ -92,5 +93,19 @@ def success(request, ticket_id):
 
 @login_required
 def ticket_detail(request, ticket_id):
+    user = request.user
     ticket = get_object_or_404(Ticket, pk=ticket_id)
-    return render(request, 'ticket_detail.html', {'ticket': ticket})
+    event = Event.objects.filter(user=user.id)
+    
+    if request.method == 'POST':
+        form = QuantForm(request.POST)
+        if form.is_valid():
+            quant = form.cleaned_data['quant']
+
+            ticket.quantite -= int(quant)
+            ticket.save()
+            return redirect('ticket', ticket_id=ticket.id)
+    else:
+        form = QuantForm()
+        
+    return render(request, 'ticket_detail.html', {'ticket': ticket, 'event': event, 'form': form})

@@ -43,7 +43,17 @@
                                 <div class="col-lg-4">
                                     <div class="sticky-side-div">
                                         <div class="card ribbon-box border shadow-none right">
-                                            <div class="ribbon-two ribbon-two-success"><span><i class="ri-fire-fill align-bottom"></i>Actif</span></div>
+                                            {% if ticket.quantite > 0 %}
+                                            <div class="ribbon-two ribbon-two-success">  
+                                                <span><i class="ri-fire-fill align-bottom"></i>Actif</span> 
+                                            </div>
+                                                {%else %}
+                                                <div class="ribbon-two ribbon-two-danger"> 
+                                                <span><i class="ri-fire-fill align-bottom"></i>Inactif</span>
+                                            </div>
+                                                {% endif %}
+                                                
+                                           
                                             <img src="{{ticket.event.banniere.url}}" alt="" class="img-fluid rounded">
                                         </div>
                                         <div class="hstack gap-2">
@@ -54,7 +64,7 @@
                                     <div>
                                         <div class="dropdown float-end">
                                             <button  id="shareButton" class="btn btn-primary" type="button">
-                                                <i class="bx bx-share-alt"></i> Share
+                                                <i class="bx bx-share-alt"></i>
                                             </button>
                                         </div>
                                         <h4>{{event.name}}</h4>
@@ -82,15 +92,24 @@
                                                         <h5 class="fs-17 mb-0">{{ticket.quantite}}</h5>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- end col -->
+                                                
+
+                                                  
+                                                
+                                            </div>{% for ev in event %}
+                                            <!-- end col -->{% if user.is_authenticated and ev.id == ticket.event.id %}
                                             <div class="col-lg-3 col-sm-6">
+                                                
+                                                  
+                                                {% if ticket.quantite == 0 %}
+                                                  
+                                                {% else %}
                                                 <form action="" method="post">
                                                     {% csrf_token %}
                                                 <div class="p-2 border border-dashed rounded text-center">
                                                     <div>
                                                         <p class="text-muted fw-medium mb-1">Nombre de validation</p>
-                                                        <h5 class="fs-17 mb-0"><input class="form-control" type="number" max="{{ticket.quantite}}"></h5>
+                                                        <h5 class="fs-17 mb-0"><input name = 'quant' class="form-control" type="number" max="{{ticket.quantite}}" placeholder="Maximum {{ticket.quantite}}"></h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +120,8 @@
                                                         Valider
                                                     </button>
                                                 </div></form>
-                                            </div><!-- end col -->
+                                                {% endif %}
+                                            </div>{% endif %}{% endfor %}<!-- end col -->
                                         </div><!--end row-->
                                         <div class="mt-4 text-muted">
                                             <h5 class="fs-14">Rang:</h5>

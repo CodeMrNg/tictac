@@ -35,7 +35,7 @@
                             <div class="row g-2">
                                 <div class="col-sm-4">
                                     <div class="search-box">
-                                        <input type="text" class="form-control" id="searchMemberList" placeholder="Search for name or designation...">
+                                        <input type="text" class="form-control" id="searchMemberList" placeholder="Rechercher un nom ou une désignation....">
                                         <i class="ri-search-line search-icon"></i>
                                     </div>
                                 </div>
@@ -46,12 +46,12 @@
                                         <button type="button" id="list-view-button" class="btn btn-soft-info nav-link  btn-icon fs-14 filter-button"><i class="ri-list-unordered"></i></button>
                                         <button type="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false" class="btn btn-soft-info btn-icon fs-14"><i class="ri-more-2-fill"></i></button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                            <li><a class="dropdown-item" href="#">All</a></li>
-                                            <li><a class="dropdown-item" href="#">Last Week</a></li>
-                                            <li><a class="dropdown-item" href="#">Last Month</a></li>
-                                            <li><a class="dropdown-item" href="#">Last Year</a></li>
+                                            <li><a class="dropdown-item" href="#">Tout</a></li>
+                                            <li><a class="dropdown-item" href="#">Cette semaine</a></li>
+                                            <li><a class="dropdown-item" href="#">Ce mois</a></li>
+                                            <li><a class="dropdown-item" href="#">Cette année</a></li>
                                         </ul>
-                                        <a class="btn btn-success " href="{% url 'add_event' %}"><i class="ri-add-fill me-1 align-bottom"></i> Add Event</a>
+                                        <a class="btn btn-success " href="{% url 'add_event' %}"><i class="ri-add-fill me-1 align-bottom"></i> Ajouter un événement</a>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -70,16 +70,17 @@
                                         
                                       <div class="col">
                                         <div class="card team-box">
-                                          <div class="team-cover">
-                                            
-                                                     <a class="member-name"
+                                            <a class="member-name"
                                                       data-bs-toggle="offcanvas"
                                                       href="#member-overview{{ev.id}}"
                                                       aria-controls="member-overview"
                                                     >
-                                            <img src="{{ev.banniere.url}}" alt="" class="img-fluid" /></a
-                                            >
-                                          </div>
+                                          <div class="team-cover">
+                                            
+                                                     
+                                            <img src="{{ev.banniere.url}}" alt="" class="img-fluid" />
+                                            
+                                          </div></a>
                                           <div class="card-body p-4">
                                             <div class="row align-items-center team-row">
                                               <div class="col team-settings">
@@ -125,7 +126,14 @@
 
                                                 </div>
                                               </div>
-                                              <a href="#!"><h5>{{ev.name}}</h5></a>  <p class="text-muted">Categorie</p> <div class="d-flex gap-4 mb-3">  <div><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{{ev.location}}</div>                    <div><i class="ri-time-line text-primary me-1 align-bottom"></i> {{ev.date_debut}}</div>                </div>                <p class="text-muted">{{ev.description}}</p>                <div class="hstack gap-2"><span class="badge bg-success-subtle text-success">Full Time</span><span class="badge bg-primary-subtle text-primary">Freelance</span><span class="badge bg-danger-subtle text-danger">Urgent</span></div>                <div class="mt-4 hstack gap-2">                    <a href="{% url 'new_ticket' ev.id %}" class="btn btn-soft-primary w-100">Apercu</a>   
+                                              <a class="member-name"
+                                                      data-bs-toggle="offcanvas"
+                                                      href="#member-overview{{ev.id}}"
+                                                      aria-controls="member-overview"
+                                                    ><h5>{{ev.name}}</h5></a>  <p class="text-muted">Categorie</p> <div class="d-flex gap-4 mb-3">  <div><i class="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{{ev.location}}</div>                    <div><i class="ri-time-line text-primary me-1 align-bottom"></i> {{ev.date_debut}}</div>                </div>                <p class="text-muted">{{ev.description}}</p>                <div class="hstack gap-2"><span class="badge bg-success-subtle text-success">Full Time</span><span class="badge bg-primary-subtle text-primary">Freelance</span><span class="badge bg-danger-subtle text-danger">Urgent</span></div>                <div class="mt-4 hstack gap-2"><a href="{% url 'new_ticket' ev.id %}" class="btn btn-soft-primary w-100">Apercu</a> <a 
+                                                        data-bs-toggle="offcanvas"
+                                                        href="#member-overview{{ev.id}}"
+                                                        aria-controls="member-overview" class="btn btn-soft-success w-100">Detail</a>    
                                               </div>
                                             </div>
                                           </div>

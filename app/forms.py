@@ -12,14 +12,17 @@ from .models import AllUser
 class AllUserCreationForm(UserCreationForm):
     class Meta:
         model = AllUser
-        fields = ('name', 'email', 'phone', 'status', 'password1', 'password2')  # Ajout des champs de mot de passe
+        fields = ('profil','name', 'email', 'phone', 'status', 'password1', 'password2')  # Ajout des champs de mot de passe
 
     # Définition des champs du formulaire avec leurs attributs
+    profil = forms.FileField(
+        label='',
+        widget=forms.FileInput(attrs={'class': 'profile-img-file-input', 'accept': 'image/*', 'required': True, 'data-max-file-size': '3MB','style':'display:none'})
+    )
     name = forms.CharField(
         label='Nom et Prénom', 
         max_length=80,
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Entrer votre nom et prénom'}),
-        help_text='Veuillez entrer votre nom et prénom.'
     )
     email = forms.EmailField(
         label='Email', 
@@ -109,3 +112,5 @@ class TicketForm(ModelForm):
         }
 
     
+class QuantForm(forms.Form):
+    quant = forms.CharField(max_length=63, label='')
